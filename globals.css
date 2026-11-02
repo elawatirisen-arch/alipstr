@@ -1,0 +1,118 @@
+:root {
+  --blue-900: #223457;
+  --blue-700: #3e5a8c;
+  --blue-500: #7c93bd;
+  --blue-100: #eef1f6;
+  --white: #ffffff;
+  --ink: #1e2430;
+  --ink-soft: #6b7280;
+  --line: #e3e6ec;
+  --promo: #b8835a;
+  --ok: #4c8c6e;
+  --out: #a8554a;
+  --bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, system-ui, "Segoe UI", sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  background: var(--blue-900);
+  color: #fff;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand { font-weight: 700; font-size: 1.15rem; }
+.brand span { color: #afc0e0; }
+.search-wrap { flex: 1; max-width: 420px; margin-left: auto; }
+.search-wrap input {
+  width: 100%;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  font-size: .92rem;
+}
+.search-wrap input::placeholder { color: #c3cee6; }
+
+.hero {
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-900));
+  color: #fff;
+  padding: 36px 20px 30px;
+}
+.hero h1 { margin: 0 0 8px; font-size: clamp(1.4rem, 5vw, 2rem); }
+.hero p { margin: 0; color: #cfd9ee; max-width: 60ch; font-size: .95rem; }
+
+.cats {
+  display: flex; gap: 8px; overflow-x: auto; padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.cats button {
+  flex: 0 0 auto; padding: 7px 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: #fff; color: var(--ink-soft);
+  font-size: .86rem; cursor: pointer;
+}
+.cats button.active { background: var(--blue-700); border-color: var(--blue-700); color: #fff; }
+
+main.content { padding: 20px; max-width: 1100px; margin: 0 auto; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: 14px;
+  overflow: hidden; transition: border-color .15s ease, transform .15s ease;
+}
+.card:hover { border-color: var(--blue-500); transform: translateY(-2px); }
+.thumb {
+  aspect-ratio: 4/3; position: relative; background-size: cover; background-position: center;
+  background-color: var(--blue-100);
+  display: flex; align-items: center; justify-content: center; color: var(--blue-700); font-weight: 700;
+}
+.badge {
+  position: absolute; top: 8px; left: 8px; background: var(--promo); color: #fff;
+  font-size: .7rem; font-weight: 600; padding: 3px 9px; border-radius: 6px;
+}
+.stock-badge {
+  position: absolute; top: 8px; right: 8px; font-size: .68rem; font-weight: 600;
+  padding: 3px 8px; border-radius: 6px; background: rgba(34,52,87,.78); color: #fff;
+}
+.stock-badge.out { background: var(--out); }
+.cbody { padding: 12px 14px 14px; }
+.cgame { font-size: .72rem; color: var(--ink-soft); margin: 0 0 3px; }
+.ctitle { font-size: .95rem; font-weight: 600; margin: 0 0 8px; line-height: 1.3; }
+.price-row { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+.now { color: var(--blue-700); font-weight: 700; font-size: 1rem; }
+.was { color: var(--ink-soft); font-size: .8rem; text-decoration: line-through; }
+
+.detail-wrap { max-width: 640px; margin: 0 auto; padding: 20px; }
+.detail-thumb { border-radius: 12px; aspect-ratio: 16/10; background-color: var(--blue-100); background-size: cover; background-position: center; }
+.detail-wrap h1 { font-size: 1.3rem; margin: 16px 0 4px; }
+.detail-wrap .desc { color: var(--ink-soft); font-size: .92rem; line-height: 1.6; margin: 10px 0 18px; }
+.price-big { font-size: 1.5rem; font-weight: 700; color: var(--blue-700); }
+.price-big .was-big { font-size: .95rem; color: var(--ink-soft); text-decoration: line-through; margin-left: 8px; font-weight: 400; }
+.buy-group { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+.buy-btn {
+  flex: 1; min-width: 160px; text-align: center; padding: 13px; border-radius: 11px;
+  background: var(--blue-700); color: #fff; font-weight: 600; font-size: .92rem;
+}
+.buy-btn.alt { background: var(--ok); }
+.buy-btn.disabled { background: var(--line); color: var(--ink-soft); pointer-events: none; }
+
+.empty { text-align: center; color: var(--ink-soft); padding: 50px 20px; font-size: .92rem; }
+footer.site-footer { text-align: center; padding: 30px 20px 40px; color: var(--ink-soft); font-size: .8rem; }
